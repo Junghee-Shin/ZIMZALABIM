@@ -1,0 +1,208 @@
+2019-08-07 14:17:07,668 DEBUG [main] product.ProductDao (ProductDao.java:962)     - do_retrieve sql : SELECT T1.*,T2.*                        
+ FROM(                                   
+ SELECT B.rnum as num                    
+       ,B.product_no                     
+       ,B.product_nm                     
+       ,B.price                          
+       ,B.join_cnt                       
+       ,B.category                       
+ 	  ,B.read_cnt                       
+ 	  ,B.contents                       
+ 	  ,B.notice                         
+ 	  ,B.target_cnt                     
+ 	  ,B.deadline                       
+ 	  ,B.host_status 	                
+ 	  ,B.delivery_status                
+ 	  ,B.reg_id                         
+ 	  ,B.reg_dt                         
+ 	  ,B.delivery_price                 
+ FROM(                                   
+    SELECT ROWNUM AS rnum,A.*            
+    FROM(                                
+       SELECT *                          
+       FROM product                      
+  WHERE reg_id = ?                       
+  AND host_status IN('10')               
+       ORDER BY reg_dt DESC              
+    )A                                   
+    WHERE ROWNUM <=(?*(?-1)+? ) )B   	
+    WHERE B.rnum>= (?*(?-1)+1)         	
+ )T1                                     
+ CROSS JOIN                              
+ (                                       
+ SELECT COUNT(*) total_cnt               
+ FROM   product                          
+  WHERE reg_id = ?                       
+  AND host_status IN('10')               
+ )T2                                     
+
+2019-08-07 14:17:07,723 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-07 14:17:07,968 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@2db0f6b2
+2019-08-07 14:17:08,030 DEBUG [main] product.ProductDao (ProductDao.java:975)     - 3.do_retrieve sql :SearchVO [pageSize=10, pageNum=1, searchDiv=, searchWord=아이디031]
+2019-08-07 14:17:08,036 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,036 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=130, productNm=여윤구1, price=80000, joinCnt=101, category=40, readCnt=13, contents=여윤구123, notice=공지090, targetCnt=130, deadline=2019-08-31 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-19 00:00:00, deliveryPrice=2500, saveFileNm=null]
+2019-08-07 14:17:08,036 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,036 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,036 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=204, productNm=미미인형 공동구매, price=29000, joinCnt=0, category=60, readCnt=0, contents=미미인형  공동구매 합니다, notice=공지수정2233, targetCnt=100, deadline=2019-08-09 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-07 14:14:57, deliveryPrice=2500, saveFileNm=null]
+2019-08-07 14:17:08,036 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,036 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,037 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=242, productNm=제목제목제목, price=35000, joinCnt=0, category=80, readCnt=0, contents=내용, notice=null, targetCnt=200, deadline=2019-08-31 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:52:32, deliveryPrice=2500, saveFileNm=null]
+2019-08-07 14:17:08,037 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,037 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,037 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=241, productNm=제발좀, price=33, joinCnt=0, category=80, readCnt=0, contents=좀!!, notice=null, targetCnt=33, deadline=2019-08-30 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:51:18, deliveryPrice=33, saveFileNm=null]
+2019-08-07 14:17:08,037 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,038 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,038 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=240, productNm=으앙ㄱ으ㅏㄱ악, price=213, joinCnt=0, category=30, readCnt=0, contents=으앙ㄱ으ㅏㄱ악, notice=null, targetCnt=123, deadline=2019-08-28 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:50:27, deliveryPrice=123, saveFileNm=null]
+2019-08-07 14:17:08,038 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,038 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,038 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=239, productNm=등록되나??, price=123, joinCnt=0, category=20, readCnt=0, contents=등록되나??, notice=null, targetCnt=123, deadline=2019-08-23 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:47:39, deliveryPrice=123, saveFileNm=null]
+2019-08-07 14:17:08,039 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,039 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,039 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=237, productNm=여기서는~~왜 등록이 되는데~~, price=33, joinCnt=0, category=50, readCnt=0, contents=여기서는~~왜 등록이 되는데~~, notice=null, targetCnt=2312, deadline=2019-08-20 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:32:49, deliveryPrice=123312, saveFileNm=null]
+2019-08-07 14:17:08,039 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,041 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,041 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=234, productNm=문화문화문화문화문화, price=35000, joinCnt=0, category=30, readCnt=0, contents=문화문화문화, notice=null, targetCnt=25, deadline=2019-08-15 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 14:02:29, deliveryPrice=3000, saveFileNm=null]
+2019-08-07 14:17:08,041 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,042 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,042 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=233, productNm=새글 등록??????, price=50000, joinCnt=0, category=10, readCnt=0, contents=새글 등록??????, notice=null, targetCnt=50, deadline=2019-08-31 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 13:58:15, deliveryPrice=5000, saveFileNm=null]
+2019-08-07 14:17:08,042 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,042 DEBUG [main] product.ProductDao (ProductDao.java:993)     - --------------------------------
+2019-08-07 14:17:08,042 DEBUG [main] product.ProductDao (ProductDao.java:994)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=232, productNm=아이디031, price=25000, joinCnt=0, category=50, readCnt=0, contents=ㅇㄴㅁㅁㄴ, notice=null, targetCnt=50, deadline=2019-08-28 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 13:56:47, deliveryPrice=5000, saveFileNm=null]
+2019-08-07 14:17:08,042 DEBUG [main] product.ProductDao (ProductDao.java:995)     - --------------------------------
+2019-08-07 14:17:08,046 DEBUG [main] product.ProductTest (ProductTest.java:114)     - ---------
+2019-08-07 14:17:08,046 DEBUG [main] product.ProductTest (ProductTest.java:115)     - rala1 : [ProductVO [restAmount=null, imageId=null, productNo=130, productNm=여윤구1, price=80000, joinCnt=101, category=40, readCnt=13, contents=여윤구123, notice=공지090, targetCnt=130, deadline=2019-08-31 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-19 00:00:00, deliveryPrice=2500, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=204, productNm=미미인형 공동구매, price=29000, joinCnt=0, category=60, readCnt=0, contents=미미인형  공동구매 합니다, notice=공지수정2233, targetCnt=100, deadline=2019-08-09 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-07 14:14:57, deliveryPrice=2500, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=242, productNm=제목제목제목, price=35000, joinCnt=0, category=80, readCnt=0, contents=내용, notice=null, targetCnt=200, deadline=2019-08-31 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:52:32, deliveryPrice=2500, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=241, productNm=제발좀, price=33, joinCnt=0, category=80, readCnt=0, contents=좀!!, notice=null, targetCnt=33, deadline=2019-08-30 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:51:18, deliveryPrice=33, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=240, productNm=으앙ㄱ으ㅏㄱ악, price=213, joinCnt=0, category=30, readCnt=0, contents=으앙ㄱ으ㅏㄱ악, notice=null, targetCnt=123, deadline=2019-08-28 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:50:27, deliveryPrice=123, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=239, productNm=등록되나??, price=123, joinCnt=0, category=20, readCnt=0, contents=등록되나??, notice=null, targetCnt=123, deadline=2019-08-23 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:47:39, deliveryPrice=123, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=237, productNm=여기서는~~왜 등록이 되는데~~, price=33, joinCnt=0, category=50, readCnt=0, contents=여기서는~~왜 등록이 되는데~~, notice=null, targetCnt=2312, deadline=2019-08-20 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 15:32:49, deliveryPrice=123312, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=234, productNm=문화문화문화문화문화, price=35000, joinCnt=0, category=30, readCnt=0, contents=문화문화문화, notice=null, targetCnt=25, deadline=2019-08-15 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 14:02:29, deliveryPrice=3000, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=233, productNm=새글 등록??????, price=50000, joinCnt=0, category=10, readCnt=0, contents=새글 등록??????, notice=null, targetCnt=50, deadline=2019-08-31 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 13:58:15, deliveryPrice=5000, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=232, productNm=아이디031, price=25000, joinCnt=0, category=50, readCnt=0, contents=ㅇㄴㅁㅁㄴ, notice=null, targetCnt=50, deadline=2019-08-28 00:00:00, hostStatus=10, deliveryStatus=100, regId=아이디031, regDt=2019-08-06 13:56:47, deliveryPrice=5000, saveFileNm=null]]
+2019-08-07 14:17:08,046 DEBUG [main] product.ProductTest (ProductTest.java:116)     - ---------
+2019-08-07 14:17:54,212 DEBUG [main] product.ProductDao (ProductDao.java:865)     - do_retrieve2 sql : SELECT T1.*,T2.*                        
+ FROM(                                   
+ SELECT B.rnum as num                    
+       ,B.product_no                     
+       ,B.product_nm                     
+       ,B.price                          
+       ,B.join_cnt                       
+       ,B.category                       
+ 	  ,B.read_cnt                       
+ 	  ,B.contents                       
+ 	  ,B.notice                         
+ 	  ,B.target_cnt                     
+ 	  ,B.deadline                       
+ 	  ,B.host_status 	                
+ 	  ,B.delivery_status                
+ 	  ,B.reg_id                         
+ 	  ,B.reg_dt                         
+ 	  ,B.delivery_price                 
+ FROM(                                   
+    SELECT ROWNUM AS rnum,A.*            
+    FROM(                                
+       SELECT *                          
+       FROM product                      
+  WHERE reg_id = ?                       
+  AND host_status IN('20','30')          
+       ORDER BY reg_dt DESC              
+    )A                                   
+    WHERE ROWNUM <=(?*(?-1)+?) )B   	    
+    WHERE B.rnum>= (?*(?-1)+1)         	
+ )T1                                     
+ CROSS JOIN                              
+ (                                       
+ SELECT COUNT(*) total_cnt               
+ FROM   product                          
+  WHERE reg_id = ?                       
+  AND host_status IN('20','30')          
+ )T2                                     
+
+2019-08-07 14:17:54,266 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-07 14:17:54,469 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@2db0f6b2
+2019-08-07 14:17:54,538 DEBUG [main] product.ProductDao (ProductDao.java:878)     - 3.do_retrieve2 sql :SearchVO [pageSize=10, pageNum=1, searchDiv=, searchWord=아이디031]
+2019-08-07 14:17:54,547 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,548 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=132, productNm=여윤구3, price=40000, joinCnt=110, category=30, readCnt=0, contents=여윤구789, notice=공지102, targetCnt=128, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-08-19 00:00:00, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,548 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,548 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,548 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=59, productNm=상품명059, price=59000, joinCnt=10, category=40, readCnt=10, contents=내용059, notice=공지수정테스트, targetCnt=68, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-25 17:58:10, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,548 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,549 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,549 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=31, productNm=상품명031, price=31000, joinCnt=6, category=80, readCnt=6, contents=내용031, notice=공지031, targetCnt=40, deadline=2019-07-21 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-21 00:00:00, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,549 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,549 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,549 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=73, productNm=상품명073, price=73000, joinCnt=13, category=20, readCnt=13, contents=내용073, notice=공지073, targetCnt=82, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,549 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,551 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,551 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=77, productNm=상품명077, price=77000, joinCnt=13, category=60, readCnt=13, contents=내용077, notice=공지077, targetCnt=86, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,551 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,551 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,552 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=79, productNm=상품명079, price=79000, joinCnt=14, category=80, readCnt=14, contents=내용079, notice=공지079, targetCnt=88, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,552 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,552 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,552 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=80, productNm=상품명080, price=80000, joinCnt=14, category=10, readCnt=14, contents=내용080, notice=공지080, targetCnt=89, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=2500, saveFileNm=null]
+2019-08-07 14:17:54,552 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,552 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,552 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=82, productNm=상품명082, price=82000, joinCnt=14, category=30, readCnt=14, contents=내용082, notice=공지082, targetCnt=91, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=2500, saveFileNm=null]
+2019-08-07 14:17:54,553 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,553 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,553 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=83, productNm=상품명083, price=83000, joinCnt=14, category=40, readCnt=14, contents=내용083, notice=공지083, targetCnt=92, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,553 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,553 DEBUG [main] product.ProductDao (ProductDao.java:896)     - --------------------------------
+2019-08-07 14:17:54,553 DEBUG [main] product.ProductDao (ProductDao.java:897)     - 4. outVO :ProductVO [restAmount=null, imageId=null, productNo=133, productNm=여윤구4, price=30000, joinCnt=104, category=20, readCnt=2, contents=여윤구941, notice=공지103, targetCnt=128, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null]
+2019-08-07 14:17:54,554 DEBUG [main] product.ProductDao (ProductDao.java:898)     - --------------------------------
+2019-08-07 14:17:54,582 DEBUG [main] product.ProductTest (ProductTest.java:121)     - ---------
+2019-08-07 14:17:54,583 DEBUG [main] product.ProductTest (ProductTest.java:122)     - rala2 : [ProductVO [restAmount=null, imageId=null, productNo=132, productNm=여윤구3, price=40000, joinCnt=110, category=30, readCnt=0, contents=여윤구789, notice=공지102, targetCnt=128, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-08-19 00:00:00, deliveryPrice=0, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=59, productNm=상품명059, price=59000, joinCnt=10, category=40, readCnt=10, contents=내용059, notice=공지수정테스트, targetCnt=68, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-25 17:58:10, deliveryPrice=0, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=31, productNm=상품명031, price=31000, joinCnt=6, category=80, readCnt=6, contents=내용031, notice=공지031, targetCnt=40, deadline=2019-07-21 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-21 00:00:00, deliveryPrice=0, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=73, productNm=상품명073, price=73000, joinCnt=13, category=20, readCnt=13, contents=내용073, notice=공지073, targetCnt=82, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=77, productNm=상품명077, price=77000, joinCnt=13, category=60, readCnt=13, contents=내용077, notice=공지077, targetCnt=86, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=79, productNm=상품명079, price=79000, joinCnt=14, category=80, readCnt=14, contents=내용079, notice=공지079, targetCnt=88, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=80, productNm=상품명080, price=80000, joinCnt=14, category=10, readCnt=14, contents=내용080, notice=공지080, targetCnt=89, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=2500, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=82, productNm=상품명082, price=82000, joinCnt=14, category=30, readCnt=14, contents=내용082, notice=공지082, targetCnt=91, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=200, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=2500, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=83, productNm=상품명083, price=83000, joinCnt=14, category=40, readCnt=14, contents=내용083, notice=공지083, targetCnt=92, deadline=2019-08-31 00:00:00, hostStatus=30, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null], ProductVO [restAmount=null, imageId=null, productNo=133, productNm=여윤구4, price=30000, joinCnt=104, category=20, readCnt=2, contents=여윤구941, notice=공지103, targetCnt=128, deadline=2019-08-31 00:00:00, hostStatus=20, deliveryStatus=300, regId=아이디031, regDt=2019-07-19 00:00:00, deliveryPrice=0, saveFileNm=null]]
+2019-08-07 14:17:54,584 DEBUG [main] product.ProductTest (ProductTest.java:123)     - ---------
+2019-08-07 18:27:27,305 DEBUG [main] join.JoinDao      ( JoinDao.java:337)     - --------------------------------------------------------------
+2019-08-07 18:27:27,306 DEBUG [main] join.JoinDao      ( JoinDao.java:338)     - 3 do_retrieve sql 
+: SELECT T1.*,T2.*                                       
+     FROM(                                              
+ SELECT B.rnum as num,                                  
+     B.JOIN_ID,                                         
+     C.PRODUCT_NO,                                      
+     C.REG_DT,                                          
+     C.TARGET_CNT,                                      
+     B.JOIN_DT,                                         
+     B.JOIN_CNT,                                        
+     B.JOIN_STATUS,                                     
+     C.PRODUCT_NM,                                      
+     C.DELIVERY_STATUS,                                 
+     C.HOST_STATUS                                      
+ FROM(                                                  
+ SELECT ROWNUM AS rnum,A.*                              
+ FROM(                                                  
+ SELECT *                                               
+     FROM JOINLIST                                      
+ 	 WHERE JOIN_ID = ?                                 
+ 	 AND   JOIN_STATUS IN('10')                        
+     ORDER BY PRODUCT_NO DESC                           
+  	)A                                                 
+  WHERE ROWNUM <=( ? * ( ?-1)+ ?)  )B JOIN PRODUCT C    
+  ON B.PRODUCT_NO = C.PRODUCT_NO                        
+  WHERE B.rnum>= ( ? * ( ?-1)+1)                        
+  )T1                                                   
+  CROSS JOIN                                            
+  (                                                     
+  SELECT COUNT(*) total_cnt                             
+  FROM JOINLIST                                         
+ 	 WHERE JOIN_ID = ?                                 
+ 	 AND   JOIN_STATUS IN('10')                        
+  )T2                                                   
+
+2019-08-07 18:27:27,307 DEBUG [main] join.JoinDao      ( JoinDao.java:339)     - --------------------------------------------------------------
+2019-08-07 18:27:27,364 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-07 18:27:27,632 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@6d1e7682
+2019-08-07 18:27:27,696 DEBUG [main] join.JoinDao      ( JoinDao.java:352)     - 3 param 
+:SearchVO [pageSize=10, pageNum=1, searchDiv=null, searchWord=아이디002]
+2019-08-07 18:27:27,713 DEBUG [main] join.JoinDao      ( JoinDao.java:366)     - --------------------------------------------------------------
+2019-08-07 18:27:27,713 DEBUG [main] join.JoinDao      ( JoinDao.java:367)     - 3 do_retrieve outVO 
+:JoinVO [join_id=아이디002, product_no=28, join_dt=2019-07-19 00:00:00, join_cnt=3, join_status=10]
+2019-08-07 18:27:27,713 DEBUG [main] join.JoinDao      ( JoinDao.java:368)     - --------------------------------------------------------------
+2019-08-07 18:27:27,713 DEBUG [main] join.JoinDao      ( JoinDao.java:366)     - --------------------------------------------------------------
+2019-08-07 18:27:27,713 DEBUG [main] join.JoinDao      ( JoinDao.java:367)     - 3 do_retrieve outVO 
+:JoinVO [join_id=아이디002, product_no=27, join_dt=2019-07-19 00:00:00, join_cnt=2, join_status=10]
+2019-08-07 18:27:27,713 DEBUG [main] join.JoinDao      ( JoinDao.java:368)     - --------------------------------------------------------------
+2019-08-07 18:27:27,714 DEBUG [main] join.JoinDao      ( JoinDao.java:366)     - --------------------------------------------------------------
+2019-08-07 18:27:27,714 DEBUG [main] join.JoinDao      ( JoinDao.java:367)     - 3 do_retrieve outVO 
+:JoinVO [join_id=아이디002, product_no=26, join_dt=2019-07-20 00:00:00, join_cnt=7, join_status=10]
+2019-08-07 18:27:27,714 DEBUG [main] join.JoinDao      ( JoinDao.java:368)     - --------------------------------------------------------------
+2019-08-07 18:27:27,714 DEBUG [main] join.JoinDao      ( JoinDao.java:366)     - --------------------------------------------------------------
+2019-08-07 18:27:27,715 DEBUG [main] join.JoinDao      ( JoinDao.java:367)     - 3 do_retrieve outVO 
+:JoinVO [join_id=아이디002, product_no=2, join_dt=2019-07-31 17:05:08, join_cnt=1, join_status=10]
+2019-08-07 18:27:27,715 DEBUG [main] join.JoinDao      ( JoinDao.java:368)     - --------------------------------------------------------------
+2019-08-07 18:27:27,718 DEBUG [main] join.JoinTest     (JoinTest.java:83)     - =================
+2019-08-07 18:27:27,718 DEBUG [main] join.JoinTest     (JoinTest.java:84)     - list[JoinVO [join_id=아이디002, product_no=28, join_dt=2019-07-19 00:00:00, join_cnt=3, join_status=10], JoinVO [join_id=아이디002, product_no=27, join_dt=2019-07-19 00:00:00, join_cnt=2, join_status=10], JoinVO [join_id=아이디002, product_no=26, join_dt=2019-07-20 00:00:00, join_cnt=7, join_status=10], JoinVO [join_id=아이디002, product_no=2, join_dt=2019-07-31 17:05:08, join_cnt=1, join_status=10]]
+2019-08-07 18:27:27,718 DEBUG [main] join.JoinTest     (JoinTest.java:85)     - =================

@@ -1,0 +1,56 @@
+2019-08-08 10:24:21,499 DEBUG [main] join.JoinDao      ( JoinDao.java:337)     - --------------------------------------------------------------
+2019-08-08 10:24:21,501 DEBUG [main] join.JoinDao      ( JoinDao.java:338)     - 3 do_retrieve sql 
+: SELECT T1.*,T2.*                                       
+     FROM(                                              
+ SELECT B.rnum as num,                                  
+     B.JOIN_ID,                                         
+     C.PRODUCT_NO,                                      
+     C.REG_DT,                                          
+     C.TARGET_CNT,                                      
+     B.JOIN_DT,                                         
+     B.JOIN_CNT,                                        
+     B.JOIN_STATUS,                                     
+     C.PRODUCT_NM,                                      
+     C.DELIVERY_STATUS,                                 
+     C.HOST_STATUS                                      
+ FROM(                                                  
+ SELECT ROWNUM AS rnum,A.*                              
+ FROM(                                                  
+ SELECT *                                               
+     FROM JOINLIST                                      
+ 	 WHERE JOIN_ID = ?                                 
+ 	 AND   JOIN_STATUS IN('10')                        
+     ORDER BY PRODUCT_NO DESC                           
+  	)A                                                 
+  WHERE ROWNUM <=( ? * ( ?-1)+ ?)  )B JOIN PRODUCT C    
+  ON B.PRODUCT_NO = C.PRODUCT_NO                        
+  WHERE B.rnum>= ( ? * ( ?-1)+1)                        
+  )T1                                                   
+  CROSS JOIN                                            
+  (                                                     
+  SELECT COUNT(*) total_cnt                             
+  FROM JOINLIST                                         
+ 	 WHERE JOIN_ID = ?                                 
+ 	 AND   JOIN_STATUS IN('10')                        
+  )T2                                                   
+
+2019-08-08 10:24:21,544 DEBUG [main] join.JoinDao      ( JoinDao.java:339)     - --------------------------------------------------------------
+2019-08-08 10:24:21,634 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-08 10:24:21,856 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@3c679bde
+2019-08-08 10:24:21,906 DEBUG [main] join.JoinDao      ( JoinDao.java:352)     - 3 param 
+:SearchVO [pageSize=10, pageNum=1, searchDiv=null, searchWord=아이디012, toString()=DTO [total=0, num=0]]
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:366)     - --------------------------------------------------------------
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:367)     - 3 do_retrieve outVO 
+:JoinVO [join_id=아이디012, product_no=78, join_dt=2019-06-24 00:00:00, join_cnt=5, join_status=10]
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:368)     - --------------------------------------------------------------
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:366)     - --------------------------------------------------------------
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:367)     - 3 do_retrieve outVO 
+:JoinVO [join_id=아이디012, product_no=77, join_dt=2019-06-24 00:00:00, join_cnt=4, join_status=10]
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:368)     - --------------------------------------------------------------
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:366)     - --------------------------------------------------------------
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:367)     - 3 do_retrieve outVO 
+:JoinVO [join_id=아이디012, product_no=76, join_dt=2019-06-25 00:00:00, join_cnt=3, join_status=10]
+2019-08-08 10:24:21,923 DEBUG [main] join.JoinDao      ( JoinDao.java:368)     - --------------------------------------------------------------
+2019-08-08 10:24:21,928 DEBUG [main] join.JoinTest     (JoinTest.java:83)     - =================
+2019-08-08 10:24:21,928 DEBUG [main] join.JoinTest     (JoinTest.java:84)     - list[JoinVO [join_id=아이디012, product_no=78, join_dt=2019-06-24 00:00:00, join_cnt=5, join_status=10], JoinVO [join_id=아이디012, product_no=77, join_dt=2019-06-24 00:00:00, join_cnt=4, join_status=10], JoinVO [join_id=아이디012, product_no=76, join_dt=2019-06-25 00:00:00, join_cnt=3, join_status=10]]
+2019-08-08 10:24:21,928 DEBUG [main] join.JoinTest     (JoinTest.java:85)     - =================

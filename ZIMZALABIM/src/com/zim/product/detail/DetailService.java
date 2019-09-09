@@ -1,0 +1,134 @@
+ /**
+ * @Class Name : DetailService.java
+ * @Description : 
+ * @Modification Information
+ * @
+ * @  수정일      수정자              수정내용
+ * @ ---------   ---------   -------------------------------
+ * @ 2019. 7. 15.           최초생성
+ *
+ * @author Zimzalabim
+ * @since 2019. 7. 15. 
+ * @version 1.0
+ * @see
+ *
+ *  Copyright (C) by HR. KIM All right reserved.
+ */
+package com.zim.product.detail;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.sun.xml.internal.ws.addressing.v200408.MemberSubmissionAddressingConstants;
+import com.zim.cmn.DTO;
+import com.zim.join.JoinDao;
+import com.zim.join.JoinVO;
+import com.zim.member.MemberDao;
+import com.zim.member.MemberVO;
+import com.zim.product.ProductDao;
+import com.zim.product.ProductVO;
+
+/**
+ * @author SIST
+ *
+ */
+public class DetailService {
+	// View -> Controller -> Service -> Dao
+
+	private final Logger LOG=Logger.getLogger(ProductDao.class);
+	
+	private ProductDao productDao;
+	private MemberDao memberDao;
+	
+	/**
+	 * 
+	 * <PRE>
+	 * 1. MethodName : HrMemberService
+	 * 2. ClassName  : HrMemberService
+	 * 3. Comment   : 생성자의 기능 = 초기화!!!
+	 * 4. 작성자    : SIST
+	 * 5. 작성일    : 2019. 7. 19. 오전 9:12:53
+	 * </PRE>
+	 */
+	public DetailService(){ // 생성자의 기능 = 초기화
+		productDao = new ProductDao();
+	}
+	
+	
+	//환불 시 참여수량 증가
+	public int do_remaining_refund_update(DTO dto, String join_Cnt){
+		//잔여수량 = 잔여수량 + 환불수량
+		ProductVO ProVO = (ProductVO) dto; //상품번호, 남은수량 받아옴
+		int remaining = Integer.parseInt(ProVO.getRemaining()); //상세보기에 남아있는 수량
+		int newCnt = Integer.parseInt(join_Cnt); //구매했던 수량
+		LOG.debug("환불 remaining:"+remaining);
+		
+		remaining = remaining+newCnt;
+		LOG.debug("환불 remaining2:"+remaining);
+		ProVO.setRemaining(Integer.toString(remaining));
+		LOG.debug("환불 ProVO:"+ProVO);
+		
+		return productDao.do_remaining_update(dto);
+	}
+	
+	
+	//결제 시 참여수량 차감
+	public int do_remaining_update(DTO dto, String join_Cnt){
+		//잔여수량 = 잔여수량 - 참여수량
+		ProductVO productVO = (ProductVO) dto;
+		int remaining = Integer.parseInt(productVO.getRemaining());
+		LOG.debug("디테일서비스 remaining:"+remaining);
+		int joinCnt = Integer.parseInt(join_Cnt);
+		
+		remaining = remaining-joinCnt;
+		productVO.setRemaining(Integer.toString(remaining));
+		LOG.debug("디테일서비스222 remaining:"+remaining);
+		
+		return productDao.do_remaining_update(dto);
+	}
+	
+	
+	
+	//공지 수정용 선택
+	public DTO do_selectOne(DTO dto){
+		return productDao.do_selectOne(dto);
+	}
+
+	
+	//공지조회
+	public DTO do_notice_select(DTO dto){
+		return productDao.do_notice_select(dto);
+	}
+	
+	
+	//공지수정
+	public int do_notice_update(DTO dto){
+		return productDao.do_notice_update(dto);
+	}
+	
+	
+	//상품상세조회
+	public DTO do_detail_select(DTO dto){
+		return productDao.do_detail_select(dto);
+	}
+	
+	//상품게시글 삽입
+	public int do_insert(DTO dto){
+		return productDao.do_insert(dto);
+	}
+	
+	
+	//상품게시글 수정
+	public int do_update(DTO dto) {
+		return productDao.do_update(dto);
+	}
+	
+	//상품게시글 삭제
+	public int do_delete(DTO dto) {
+		return productDao.do_delete(dto);
+	}
+	
+	
+
+}

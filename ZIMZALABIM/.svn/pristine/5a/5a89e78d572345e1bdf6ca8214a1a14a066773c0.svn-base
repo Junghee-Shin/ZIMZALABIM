@@ -1,0 +1,70 @@
+2019-08-06 14:45:18,317 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-06 14:45:18,597 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@2db0f6b2
+2019-08-06 14:45:18,597 DEBUG [main] join.JoinDao      ( JoinDao.java:97)     - 1.======================
+2019-08-06 14:45:18,597 DEBUG [main] join.JoinDao      ( JoinDao.java:98)     - 1.query 
+ UPDATE JOINLIST                    
+ 	   SET join_status = '20'      
+ 	   WHERE JOIN_ID = ?	       
+       AND product_no = ?	       
+
+2019-08-06 14:45:18,598 DEBUG [main] join.JoinDao      ( JoinDao.java:99)     - 3. param: JoinVO [join_id=soso, product_no=1, join_dt=, join_cnt=30, join_status=10]
+2019-08-06 14:45:18,599 DEBUG [main] join.JoinDao      ( JoinDao.java:100)     - 1.======================
+2019-08-06 14:45:18,656 DEBUG [main] join.JoinDao      ( JoinDao.java:108)     - 3.======================
+2019-08-06 14:45:18,657 DEBUG [main] join.JoinDao      ( JoinDao.java:109)     - 3.flag :0
+2019-08-06 14:45:18,657 DEBUG [main] join.JoinDao      ( JoinDao.java:110)     - 3.======================
+2019-08-06 14:47:01,871 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-06 14:47:02,059 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@2db0f6b2
+2019-08-06 14:47:02,059 DEBUG [main] join.JoinDao      ( JoinDao.java:97)     - 1.======================
+2019-08-06 14:47:02,059 DEBUG [main] join.JoinDao      ( JoinDao.java:98)     - 1.query 
+ UPDATE JOINLIST                    
+ 	   SET join_status = '20'      
+ 	   WHERE JOIN_ID = ?	       
+       AND product_no = ?	       
+
+2019-08-06 14:47:02,061 DEBUG [main] join.JoinDao      ( JoinDao.java:99)     - 3. param: JoinVO [join_id=아이디001, product_no=23, join_dt=, join_cnt=4, join_status=10]
+2019-08-06 14:47:02,061 DEBUG [main] join.JoinDao      ( JoinDao.java:100)     - 1.======================
+2019-08-06 14:47:02,114 DEBUG [main] join.JoinDao      ( JoinDao.java:108)     - 3.======================
+2019-08-06 14:47:02,114 DEBUG [main] join.JoinDao      ( JoinDao.java:109)     - 3.flag :0
+2019-08-06 14:47:02,114 DEBUG [main] join.JoinDao      ( JoinDao.java:110)     - 3.======================
+2019-08-06 14:50:02,362 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-06 14:50:02,573 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@2db0f6b2
+2019-08-06 14:50:02,573 DEBUG [main] join.JoinDao      ( JoinDao.java:97)     - 1.======================
+2019-08-06 14:50:02,573 DEBUG [main] join.JoinDao      ( JoinDao.java:98)     - 1.query 
+ UPDATE JOINLIST                    
+ 	   SET join_status = '20'      
+ 	   WHERE JOIN_ID = ?	       
+       AND product_no = ?	       
+
+2019-08-06 14:50:02,575 DEBUG [main] join.JoinDao      ( JoinDao.java:99)     - 3. param: JoinVO [join_id=아이디001, product_no=23, join_dt=, join_cnt=4, join_status=20]
+2019-08-06 14:50:02,575 DEBUG [main] join.JoinDao      ( JoinDao.java:100)     - 1.======================
+2019-08-06 14:50:02,625 DEBUG [main] join.JoinDao      ( JoinDao.java:108)     - 3.======================
+2019-08-06 14:50:02,625 DEBUG [main] join.JoinDao      ( JoinDao.java:109)     - 3.flag :0
+2019-08-06 14:50:02,625 DEBUG [main] join.JoinDao      ( JoinDao.java:110)     - 3.======================
+2019-08-06 15:02:43,738 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-06 15:02:43,940 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@2db0f6b2
+2019-08-06 15:02:43,940 DEBUG [main] join.JoinDao      ( JoinDao.java:97)     - 1.======================
+2019-08-06 15:02:43,940 DEBUG [main] join.JoinDao      ( JoinDao.java:98)     - 1.query 
+ UPDATE JOINLIST                    
+ 	   SET join_status = '20'      
+ 	   WHERE JOIN_ID = ?	       
+       AND product_no = ?	       
+
+2019-08-06 15:02:43,941 DEBUG [main] join.JoinDao      ( JoinDao.java:99)     - 3. param: JoinVO [join_id=아이디001, product_no=23, join_dt=, join_cnt=4, join_status=10]
+2019-08-06 15:02:43,941 DEBUG [main] join.JoinDao      ( JoinDao.java:100)     - 1.======================
+2019-08-06 15:02:43,995 DEBUG [main] join.JoinDao      ( JoinDao.java:108)     - 3.======================
+2019-08-06 15:02:43,995 DEBUG [main] join.JoinDao      ( JoinDao.java:109)     - 3.flag :0
+2019-08-06 15:02:43,995 DEBUG [main] join.JoinDao      ( JoinDao.java:110)     - 3.======================
+2019-08-06 15:02:53,005 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:21)     - 1.jdbc 드라이버 로딩
+2019-08-06 15:02:53,233 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:30)     - 2.데이터베이스 커넥션 생성:oracle.jdbc.driver.T4CConnection@2db0f6b2
+2019-08-06 15:02:53,233 DEBUG [main] join.JoinDao      ( JoinDao.java:97)     - 1.======================
+2019-08-06 15:02:53,233 DEBUG [main] join.JoinDao      ( JoinDao.java:98)     - 1.query 
+ UPDATE JOINLIST                    
+ 	   SET join_status = '20'      
+ 	   WHERE JOIN_ID = ?	       
+       AND product_no = ?	       
+
+2019-08-06 15:02:53,234 DEBUG [main] join.JoinDao      ( JoinDao.java:99)     - 3. param: JoinVO [join_id=아이디001, product_no=23, join_dt=, join_cnt=4, join_status=20]
+2019-08-06 15:02:53,234 DEBUG [main] join.JoinDao      ( JoinDao.java:100)     - 1.======================
+2019-08-06 15:02:53,291 DEBUG [main] join.JoinDao      ( JoinDao.java:108)     - 3.======================
+2019-08-06 15:02:53,291 DEBUG [main] join.JoinDao      ( JoinDao.java:109)     - 3.flag :0
+2019-08-06 15:02:53,291 DEBUG [main] join.JoinDao      ( JoinDao.java:110)     - 3.======================
