@@ -14,6 +14,7 @@
 ![WBS](https://github.com/jhee10101/ZIMZALABIM/blob/master/ZIMZALABIM/document/image/WBS.PNG?raw=true)
 
 ## 프로젝트 아키텍처
+MVC
 ![아키텍처](https://github.com/jhee10101/ZIMZALABIM/blob/master/ZIMZALABIM/document/image/MVC.PNG?raw=true)
 
 
