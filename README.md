@@ -8,7 +8,7 @@
 여윤구
 
 ## 프로젝트 주제
-공동구매사이트
+공동구매 사이트
 
 ## WBS
 ![WBS](https://github.com/jhee10101/ZIMZALABIM/blob/master/ZIMZALABIM/document/image/WBS.PNG?raw=true)
